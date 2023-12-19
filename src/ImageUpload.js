@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ImageUpload = () => {
+const ImageUpload = ({ onImageUpload }) => { // onImageUpload prop 추가
   const [selectedImage, setSelectedImage] = useState(null);
   const [uploaded, setUploaded] = useState(false);
 
@@ -8,6 +8,7 @@ const ImageUpload = () => {
     const file = event.target.files[0];
     setSelectedImage(file);
     setUploaded(true);
+    onImageUpload(event); // 이미지를 선택한 후에 onImageUpload 함수 호출
   };
 
   return (
@@ -33,4 +34,6 @@ const ImageUpload = () => {
 };
 
 export default ImageUpload;
+
+
 
