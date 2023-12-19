@@ -4,8 +4,12 @@ const DiagnosisResult = ({ textFromBackend }) => {
   const [diagnosisText, setDiagnosisText] = useState('');
 
   useEffect(() => {
-    if (textFromBackend) {
-      setDiagnosisText(textFromBackend);
+    if (textFromBackend && textFromBackend.prediction) {
+      // textFromBackend.prediction이 객체라면, 이를 문자열로 변환하여 저장
+      const predictionText = typeof textFromBackend.prediction === 'object' 
+        ? JSON.stringify(textFromBackend.prediction) 
+        : textFromBackend.prediction;
+      setDiagnosisText(predictionText);
     }
   }, [textFromBackend]);
 
@@ -18,4 +22,3 @@ const DiagnosisResult = ({ textFromBackend }) => {
 };
 
 export default DiagnosisResult;
-
