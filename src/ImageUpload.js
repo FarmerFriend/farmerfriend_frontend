@@ -34,3 +34,5 @@ const ImageUpload = ({ onImageUpload }) => { // onImageUpload prop 추가
 };
 
 export default ImageUpload;
+
+

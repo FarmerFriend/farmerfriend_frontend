@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 const SolutionViewer = ({ solutionData, showSpeakButton }) => {
   const [solution, setSolution] = useState('');
+  const[description, setDescription]=useState("")
   const [imageUrl, setImageUrl] = useState('');
 
   useEffect(() => {
     if (solutionData) {
+      setDescription(solutionData.data)
       setSolution(solutionData.text); // 해결 방법 설명
       setImageUrl(solutionData.imageUrl); // 이미지 URL
     }
@@ -20,6 +22,7 @@ const SolutionViewer = ({ solutionData, showSpeakButton }) => {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
       <div style={{ marginRight: '20px', textAlign: 'center' }}>
+        <p>{description}</p>
         <p>{solution}</p>
         {showSpeakButton && (
           <button
@@ -43,7 +46,7 @@ const SolutionViewer = ({ solutionData, showSpeakButton }) => {
       {/* 이미지 출력 */}
       {imageUrl && (
         <div style={{ textAlign: 'center' }}>
-          <img src={imageUrl} alt="해결 방법 이미지" style={{ maxWidth: '300px' }} />
+          <img src={imageUrl} alt="해결 방법 이미지" style={{ maxWidth: '900px' }} />
         </div>
       )}
     </div>
