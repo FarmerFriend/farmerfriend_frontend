@@ -53,6 +53,7 @@ function translate(word) {
 }
 
 const DiagnosisResult = ({ textFromBackend, handleShowSolution }) => {
+
   const [diagnosisText, setDiagnosisText] = useState('');
 
   useEffect(() => {
@@ -78,29 +79,3 @@ const DiagnosisResult = ({ textFromBackend, handleShowSolution }) => {
 
 export default DiagnosisResult;
 
-// const DiagnosisResult = ({ textFromBackend }) => {
-//   const [diagnosisText, setDiagnosisText] = useState('');
-
-//   useEffect(() => {
-//     if (textFromBackend && textFromBackend.prediction) {
-//       const predictionText = typeof textFromBackend.prediction === 'object' 
-//         ? JSON.stringify(textFromBackend.prediction) 
-//         : textFromBackend.prediction;
-  
-//       setDiagnosisText(predictionText);
-//       // handleShowSolution(predictionText); 이 부분을 제거합니다.
-//     }
-//   }, [textFromBackend]);
-
-
-//   return (
-//     <div style={{ textAlign: 'center', marginTop: '20px' }}>
-//       <h3 style={{ fontSize: '1.5em' }}>피해 작물 종류</h3>
-//       <p style={{ fontSize: '1em' }}>{translate(diagnosisText)}</p>
-      
-
-//     </div>
-//   );
-// };
-
-// export default DiagnosisResult;
