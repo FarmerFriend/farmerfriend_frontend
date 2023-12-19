@@ -29,7 +29,7 @@ function App() {
   const handleDiagnose = () => {
     console.log("1");
     console.log(imageFile);
-    const backendUrl = 'http://localhost:8080/disease'; 
+    const backendUrl = 'http://172.30.1.99:8080/disease'; 
 
     const formData = new FormData();
     formData.append('image', imageFile);
@@ -44,6 +44,7 @@ function App() {
     })
     .catch(error => console.error('Error:', error));
     console.log("2");
+    
   };
   
   
